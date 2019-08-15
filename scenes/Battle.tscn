@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Battle.gd" type="Script" id=1]
+[ext_resource path="res://scenes/PlayerStats.gd" type="Script" id=2]
+[ext_resource path="res://assets/Images/Dungeon.png" type="Texture" id=3]
+[ext_resource path="res://assets/Images/Mobile RPG Mockup.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=5]
+
+[node name="Battle" type="Node"]
+script = ExtResource( 1 )
+
+[node name="PlayerStats" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Dungeon" type="Sprite" parent="."]
+position = Vector2( 45, 80 )
+texture = ExtResource( 3 )
+
+[node name="Mobile RPG Mockup" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.294118 )
+position = Vector2( 45, 80 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Enemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 46, 33 )
+
+[node name="UI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="StatsPanel" type="Panel" parent="UI"]
+margin_left = 3.0
+margin_top = 52.0
+margin_right = 87.0
+margin_bottom = 70.0
+
+[node name="GridContainer" type="GridContainer" parent="UI"]
+margin_left = 9.0
+margin_top = 73.0
+margin_right = 81.0
+margin_bottom = 137.0
+custom_constants/vseparation = 3
+custom_constants/hseparation = 8
+columns = 2
+
+[node name="SwordButton" type="Button" parent="UI/GridContainer"]
+margin_right = 32.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 32, 13 )
+text = "SWORD"
+
+[node name="TestButton" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_right = 72.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton2" type="Button" parent="UI/GridContainer"]
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton3" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton4" type="Button" parent="UI/GridContainer"]
+margin_top = 32.0
+margin_right = 32.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton5" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 72.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton6" type="Button" parent="UI/GridContainer"]
+margin_top = 48.0
+margin_right = 32.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TestButton7" type="Button" parent="UI/GridContainer"]
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 72.0
+margin_bottom = 61.0
+rect_min_size = Vector2( 32, 13 )
+
+[node name="TextBoxPanel" type="Panel" parent="UI"]
+margin_left = -2.0
+margin_top = 137.0
+margin_right = 92.0
+margin_bottom = 161.0
+[connection signal="died" from="Enemy" to="." method="_on_Enemy_died"]
+[connection signal="pressed" from="UI/GridContainer/SwordButton" to="." method="_on_SwordButton_pressed"]
