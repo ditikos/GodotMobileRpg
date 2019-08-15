@@ -1,7 +1,7 @@
 extends Node
 
 onready var enemy = $Enemy
-onready var swordButton = $UI/SwordButton
+onready var swordButton = $UI/GridContainer/SwordButton
 
 func _on_SwordButton_pressed():
 	if enemy != null:
