@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/Images/Rat.png" type="Texture" id=2]
+[ext_resource path="res://DefaultTheme.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/HoverInfo.tscn" type="PackedScene" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Attack"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Rat:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -17,13 +19,26 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 8, -8 ), Vector2( -5, 3 ), Vector2( -28, 2 ), Vector2( 0, 0 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "deal_damage"
+} ]
+}
 
-[sub_resource type="Animation" id=1]
-resource_name = "Shake"
+[sub_resource type="Animation" id=2]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("Rat:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -37,8 +52,11 @@ tracks/0/keys = {
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Rat" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
 [node name="HPLabel" type="Label" parent="."]
@@ -46,9 +64,17 @@ margin_left = -33.0
 margin_top = -29.0
 margin_right = 31.0
 margin_bottom = -15.0
+theme = ExtResource( 3 )
 text = "25hp"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 2 )
-anims/Shake = SubResource( 1 )
+anims/Attack = SubResource( 1 )
+anims/Shake = SubResource( 2 )
+
+[node name="HoverInfo" parent="." instance=ExtResource( 4 )]
+margin_left = -25.0
+margin_top = -16.0
+margin_right = 25.0
+margin_bottom = 16.0
+mouse_filter = 1

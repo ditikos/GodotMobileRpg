@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "BattleUnits",
+"language": "GDScript",
+"path": "res://BattleUnits.gd"
+} ]
 _global_script_class_icons={
-
+"BattleUnits": ""
 }
 
 [application]
@@ -28,10 +33,6 @@ window/size/test_height=640
 window/handheld/orientation="portrait"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
-
-[gui]
-
-theme/custom="res://DefaultTheme.tres"
 
 [importer_defaults]
 
