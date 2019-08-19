@@ -12,10 +12,9 @@
 [ext_resource path="res://GreekFont.tres" type="DynamicFont" id=10]
 [ext_resource path="res://scenes/HealActionButton.tscn" type="PackedScene" id=11]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="Animation" id=1]
-resource_name = "FadeToNewRoom"
+[sub_resource type="Animation" id=2]
 length = 0.3
 step = 0.05
 tracks/0/type = "value"
@@ -46,6 +45,7 @@ texture = ExtResource( 5 )
 position = Vector2( 47, 29 )
 
 [node name="Slime" parent="EnemyPosition" instance=ExtResource( 3 )]
+damage = 4
 
 [node name="Mobile RPG Mockup" type="Sprite" parent="."]
 visible = false
@@ -147,7 +147,7 @@ margin_left = 2.0
 margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_styles/normal = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 10 )
 custom_constants/line_separation = -1
 scroll_active = false
@@ -160,7 +160,7 @@ mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/FadeToNewRoom = SubResource( 1 )
+anims/FadeToNewRoom = SubResource( 2 )
 [connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_ap_changed"]
 [connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_hp_changed"]
 [connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_mp_changed"]

@@ -8,3 +8,4 @@ func _on_pressed():
 			playerStats.hp += 5
 			playerStats.ap -= 1
 			playerStats.mp -= 8
+			$HealSFX.play()

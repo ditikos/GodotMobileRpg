@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Slash.gd" type="Script" id=1]
 [ext_resource path="res://assets/Images/SlashEffect.png" type="Texture" id=2]
+[ext_resource path="res://assets/SFX/Slash01.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Slash"
@@ -18,6 +19,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 4 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [node name="Slash" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,4 +46,7 @@ frame = 4
 autoplay = "Slash"
 playback_speed = 1.5
 anims/Slash = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

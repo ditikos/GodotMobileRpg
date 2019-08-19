@@ -2,13 +2,20 @@ extends "res://ActionButton.gd"
 
 const Slash = preload("res://scenes/Slash.tscn")
 
+var rng = RandomNumberGenerator.new()
+
+func _ready() -> void:
+	rng.randomize()
+
 func _on_pressed() -> void:
 	var enemy = BattleUnits.Enemy
 	var playerStats = BattleUnits.PlayerStats
 	
 	if enemy != null and playerStats != null:
 		create_slash(enemy.global_position)
-		enemy.take_damage(4)
+		# change 1: dynamic damage instead of 4.
+		var damage = clamp(rng.randi_range(0, 4), 0, 4)
+		enemy.take_damage(damage)
 		playerStats.ap -= 1
 		playerStats.mp += 2
 
