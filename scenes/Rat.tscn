@@ -3,6 +3,8 @@
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
 
 [node name="Rat" instance=ExtResource( 1 )]
+hp = 30
+damage = 3
 
 [node name="HoverInfo" parent="." index="3"]
 mouse_filter = 0

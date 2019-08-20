@@ -45,8 +45,7 @@ texture = ExtResource( 6 )
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 47, 29 )
 
-[node name="Slime" parent="EnemyPosition" instance=ExtResource( 3 )]
-damage = 4
+[node name="Minotaur" parent="EnemyPosition" instance=ExtResource( 4 )]
 
 [node name="Mobile RPG Mockup" type="Sprite" parent="."]
 visible = false
