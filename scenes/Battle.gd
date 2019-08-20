@@ -49,5 +49,6 @@ func _on_NextRoom_pressed() -> void:
 	yield(animationPlayer,"animation_finished")
 	var playerStats = BattleUnits.PlayerStats
 	playerStats.ap = playerStats.max_ap
+	playerStats.rm += 1
 	battleActionButtons.show()
 	createNewEnemy()

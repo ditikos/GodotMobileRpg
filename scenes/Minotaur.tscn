@@ -28,10 +28,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.95 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+"values": [ 8, 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("enemySFX")
@@ -93,13 +93,13 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, -5 ), Vector2( 0, -3 ), Vector2( 0, 3 ) ]
 }
 
-[node name="Minotaur" index="0" instance=ExtResource( 1 )]
+[node name="Minotaur" instance=ExtResource( 1 )]
 damage = 4
 
 [node name="Sprite" parent="." index="0"]
-position = Vector2( 5.5, -3 )
 texture = ExtResource( 2 )
 hframes = 9
+frame = 8
 
 [node name="HPLabel" parent="." index="1"]
 text = "40hp"

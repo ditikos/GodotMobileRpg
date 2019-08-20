@@ -77,7 +77,6 @@ rect_min_size = Vector2( 17, 13 )
 text = "NEXT ROOM"
 
 [node name="StatsPanel" type="Panel" parent="UI"]
-editor/display_folded = true
 margin_left = 3.0
 margin_top = 52.0
 margin_right = 87.0
@@ -89,7 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HP" type="Label" parent="UI/StatsPanel/StatsContainer"]
-margin_right = 25.0
+margin_right = 18.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "HP
@@ -97,8 +96,8 @@ text = "HP
 align = 1
 
 [node name="AP" type="Label" parent="UI/StatsPanel/StatsContainer"]
-margin_left = 29.0
-margin_right = 54.0
+margin_left = 22.0
+margin_right = 40.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "AP
@@ -106,12 +105,21 @@ text = "AP
 align = 1
 
 [node name="MP" type="Label" parent="UI/StatsPanel/StatsContainer"]
-margin_left = 58.0
-margin_right = 84.0
+margin_left = 44.0
+margin_right = 62.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
 text = "MP
 10"
+align = 1
+
+[node name="ROOM" type="Label" parent="UI/StatsPanel/StatsContainer"]
+margin_left = 66.0
+margin_right = 84.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "RM
+01"
 align = 1
 
 [node name="BattleActionButtons" type="GridContainer" parent="UI"]
@@ -164,4 +172,5 @@ autoplay = true
 [connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_ap_changed"]
 [connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_hp_changed"]
 [connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_mp_changed"]
+[connection signal="rm_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_rm_changed"]
 [connection signal="pressed" from="UI/CenterContainer/NextRoom" to="." method="_on_NextRoom_pressed"]
