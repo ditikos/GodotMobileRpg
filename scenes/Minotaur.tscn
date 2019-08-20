@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Enemies/minotaur_2.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Minotaur_Attack.tres" type="Animation" id=3]
+
+[node name="Minotaur" index="0" instance=ExtResource( 1 )]
+hp = 40
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2( 0, 3 )
+texture = ExtResource( 2 )
+hframes = 9
+
+[node name="HPLabel" parent="." index="1"]
+text = "40hp"
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/Minotaur_Attack = ExtResource( 3 )
+
+[node name="HoverInfo" parent="." index="3"]
+description = "Oh noes! It's... the Minotaur!"

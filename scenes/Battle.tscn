@@ -1,16 +1,17 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/Battle.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Rat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Slime.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/PlayerStats.gd" type="Script" id=4]
-[ext_resource path="res://assets/Images/Dungeon.png" type="Texture" id=5]
-[ext_resource path="res://assets/Images/Mobile RPG Mockup.png" type="Texture" id=6]
-[ext_resource path="res://DefaultTheme.tres" type="Theme" id=7]
-[ext_resource path="res://scenes/StatsPanel.gd" type="Script" id=8]
-[ext_resource path="res://scenes/SwordActionButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://GreekFont.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scenes/Minotaur.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/PlayerStats.gd" type="Script" id=5]
+[ext_resource path="res://assets/Images/Dungeon.png" type="Texture" id=6]
+[ext_resource path="res://assets/Images/Mobile RPG Mockup.png" type="Texture" id=7]
+[ext_resource path="res://DefaultTheme.tres" type="Theme" id=8]
+[ext_resource path="res://scenes/StatsPanel.gd" type="Script" id=9]
+[ext_resource path="res://scenes/SwordActionButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/HealActionButton.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/SFX/rolemu_-_La_Calahorra.ogg" type="AudioStream" id=12]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -32,14 +33,14 @@ tracks/0/keys = {
 
 [node name="Battle" type="Node"]
 script = ExtResource( 1 )
-enemies = [ ExtResource( 2 ), ExtResource( 3 ) ]
+enemies = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ]
 
 [node name="PlayerStats" type="Node" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="Dungeon" type="Sprite" parent="."]
 position = Vector2( 45, 80 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="EnemyPosition" type="Position2D" parent="."]
 position = Vector2( 47, 29 )
@@ -51,7 +52,7 @@ damage = 4
 visible = false
 modulate = Color( 1, 1, 1, 0.294118 )
 position = Vector2( 45, 80 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -60,7 +61,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = ExtResource( 7 )
+theme = ExtResource( 8 )
 
 [node name="CenterContainer" type="CenterContainer" parent="UI"]
 margin_right = 90.0
@@ -82,7 +83,7 @@ margin_left = 3.0
 margin_top = 52.0
 margin_right = 87.0
 margin_bottom = 70.0
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 
 [node name="StatsContainer" type="HBoxContainer" parent="UI/StatsPanel"]
 anchor_right = 1.0
@@ -123,16 +124,12 @@ custom_constants/vseparation = 3
 custom_constants/hseparation = 8
 columns = 2
 
-[node name="SwordActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 9 )]
-custom_fonts/font = ExtResource( 10 )
-text = "ΣΠΑΘΙ"
+[node name="SwordActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 10 )]
 
 [node name="HealActionButton" parent="UI/BattleActionButtons" instance=ExtResource( 11 )]
 margin_left = 40.0
 margin_right = 72.0
 margin_bottom = 13.0
-custom_fonts/font = ExtResource( 10 )
-text = "ΖΩΗ"
 
 [node name="TextBoxPanel" type="Panel" parent="UI"]
 margin_left = -2.0
@@ -148,8 +145,7 @@ margin_top = 2.0
 margin_right = -2.0
 margin_bottom = -2.0
 custom_styles/normal = SubResource( 1 )
-custom_fonts/normal_font = ExtResource( 10 )
-custom_constants/line_separation = -1
+custom_constants/line_separation = 3
 scroll_active = false
 
 [node name="Fade" type="ColorRect" parent="."]
@@ -161,6 +157,11 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadeToNewRoom = SubResource( 2 )
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+autoplay = true
 [connection signal="ap_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_ap_changed"]
 [connection signal="hp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_hp_changed"]
 [connection signal="mp_changed" from="PlayerStats" to="UI/StatsPanel" method="_on_PlayerStats_mp_changed"]

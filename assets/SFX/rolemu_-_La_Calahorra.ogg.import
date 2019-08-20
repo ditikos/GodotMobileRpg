@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rolemu_-_La_Calahorra.ogg-2253f178297c95fb1785ee22c5e56586.oggstr"
+
+[deps]
+
+source_file="res://assets/SFX/rolemu_-_La_Calahorra.ogg"
+dest_files=[ "res://.import/rolemu_-_La_Calahorra.ogg-2253f178297c95fb1785ee22c5e56586.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

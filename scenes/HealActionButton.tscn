@@ -4,14 +4,14 @@
 [ext_resource path="res://scenes/HealActionButton.gd" type="Script" id=2]
 [ext_resource path="res://assets/SFX/PowerUp01.wav" type="AudioStream" id=3]
 
-[node name="HealActionButton" index="0" instance=ExtResource( 1 )]
+[node name="HealActionButton" instance=ExtResource( 1 )]
 text = "HEAL"
 script = ExtResource( 2 )
 
 [node name="HoverInfo" parent="." index="0"]
 mouse_filter = 1
-description = "ΖΩΗ
-ΘΕΡΑΠΕΥΕΙ 4 HP"
+description = "Heals 4 HP"
 
 [node name="HealSFX" type="AudioStreamPlayer" parent="." index="1"]
 stream = ExtResource( 3 )
+volume_db = -12.0

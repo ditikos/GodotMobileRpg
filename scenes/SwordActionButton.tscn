@@ -11,5 +11,4 @@ script = ExtResource( 2 )
 
 [node name="HoverInfo" parent="." index="0"]
 mouse_filter = 1
-description = "ΣΠΑΘΙ
-ΧΤΥΠΑ ΤΟΝ ΑΝΤΙΠΑΛΟ!"
+description = "Use sword to hit the opponent!"
