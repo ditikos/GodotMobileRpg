@@ -6,6 +6,7 @@
 
 [sub_resource type="Animation" id=2]
 resource_name = "Attack"
+step = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -13,7 +14,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -33,7 +34,7 @@ tracks/1/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/path = NodePath("enemySFX")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -99,7 +100,6 @@ damage = 4
 position = Vector2( 5.5, -3 )
 texture = ExtResource( 2 )
 hframes = 9
-frame = 8
 
 [node name="HPLabel" parent="." index="1"]
 text = "40hp"
@@ -111,7 +111,3 @@ anims/Shake = SubResource( 4 )
 
 [node name="HoverInfo" parent="." index="3"]
 description = "Oh noes! It's... the Minotaur!"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
-stream = ExtResource( 3 )
-volume_db = -12.0

@@ -51,3 +51,6 @@ margin_top = -16.0
 margin_right = 25.0
 margin_bottom = 16.0
 mouse_filter = 1
+
+[node name="enemySFX" type="AudioStreamPlayer" parent="."]
+volume_db = -12.0
